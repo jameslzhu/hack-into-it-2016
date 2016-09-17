@@ -2,7 +2,7 @@ var County = require('./models/county');
 var glob = require("glob");
 var fs = require("fs");
 
-/*
+
 function getAllJson() {
     glob("jsonData/*.json", function(err, files) {
       if(err) {
@@ -21,10 +21,20 @@ function getAllJson() {
             var county = new County();
             var geo = parseInt(obj.geography, 10)
             var industry = parseInt(obj.industry, 10)
+
             var earn = parseInt(obj.EarnS, 10)
+            if (earn == null) {
+                earn = -1
+            }
             var hire = parseInt(obj.HirN, 10)
+            if (hire == null) {
+                hire = -1
+            }
             var sex = parseInt(obj.sex, 10)
             var emp = parseInt(obj.Emp, 10)
+            if (emp == null) {
+                emp = -1
+            }
             var year = parseInt(obj.year, 10)
             var quarter = parseInt(obj.quarter, 10)
             var geography = parseInt(obj.geography, 10)
@@ -43,6 +53,7 @@ function getAllJson() {
             county.emp = emp
             county.year = year
             county.quarter = quarter
+            county.save();
           }
           z += 1;
           console.log(z)
@@ -51,7 +62,7 @@ function getAllJson() {
         });
       });
     });
-}*/
+}
 
 
 

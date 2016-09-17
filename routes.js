@@ -3,8 +3,11 @@ var express = require('express');
 // Get the router
 var router = express.Router();
  
+var loadCounties = require('./loadCounties.js');
 var County = require('./models/county');
- 
+
+loadCounties.loadCounties();
+
 // Middleware for all this routers requests
 router.use(function timeLog(req, res, next) {
 	console.log(req.method, ' Request Received: ', dateDisplayed(Date.now()));
@@ -17,51 +20,17 @@ router.get('/', function(req, res) {
 });
  
 // GET all messages (using a GET at http://localhost:8080/messages)
-/*router.route('/accounts')
+router.route('/signin')
 	.get(function(req, res) {
-		Account.find(function(err, accounts) {
+		County.find({sex: 2}, function(err, account){
 			if (err)
 				res.send(err);
-			res.json(accounts);
+			res.json(account)
+			console.log(account.length)
 		});
-	})
-
-// Create an account (using POST at http://localhost:8080/messages)
-	.post(function(req, res) {
-		if (req.body.firstName && req.body.lastName && req.body.email && req.body.password) {
-			// Set account values from request
-			var account = new Account();
-			account.id = "hohoho";
-			account.firstName = req.body.firstName;
-			account.lastName = req.body.lastName;
-			account.email = req.body.email;
-			account.password = req.body.password;
-			// Save message and check for errors
-			account.save(function(err) {
-				if (err)
-					res.send(err);
-				res.json({ message: 'Account created successfully!' });
-			});
-		}
-		else {
-			res.send("fill in all form areas");
-		}
-	});
-
-router.route('/signin')
-	.post(function(req, res) {
-		if (req.body.email && req.body.password) {
-			Account.find({email: req.body.email, password: req.body.password}, function(err, account){
-				if (err)
-					res.send(err);
-				res.json(account)
-			});
-		}
-		else {
-			res.send("fill in all form areas");
-		}
 		
 	});
+
 
 /*router.route('/messages/:message_id')
 	// GET message with id (using a GET at http://localhost:8080/messages/:message_id)

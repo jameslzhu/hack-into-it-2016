@@ -12,4 +12,6 @@ for filename in os.listdir("formattedData/"):
         reader = csv.DictReader( csvfile, fieldnames)
         for row in reader:
             json.dump(row, jsonfile)
-            jsonfile.write('\n')
+            jsonfile.write(',\n')
+        jsonfile.seek(-2, os.SEEK_END)
+        jsonfile.truncate()
