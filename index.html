@@ -5,32 +5,85 @@
         <script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
 </head>
 <body>
- 
-<form name="inputval" action="http://www.google.com" method="GET">
+
+<form name="inputval" action="http://localhost:3000" method="GET">
+States: <br>
+<input type="checkbox" name="states[]" value="00">National (50 States + DC)<br>
+<input type="checkbox" name="states[]" value="01">Alabama<br>
+<input type="checkbox" name="states[]" value="02">Alaska<br>
+<input type="checkbox" name="states[]" value="04">Arizona<br>
+<input type="checkbox" name="states[]" value="05">Arkansas<br>
+<input type="checkbox" name="states[]" value="06">California<br>
+<input type="checkbox" name="states[]" value="08">Colorado<br>
+<input type="checkbox" name="states[]" value="09">Connecticut<br>
+<input type="checkbox" name="states[]" value="10">Delaware<br>
+<input type="checkbox" name="states[]" value="11">District of Columbia<br>
+<input type="checkbox" name="states[]" value="12">Florida<br>
+<input type="checkbox" name="states[]" value="13">Georgia<br>
+<input type="checkbox" name="states[]" value="15">Hawaii<br>
+<input type="checkbox" name="states[]" value="16">Idaho<br>
+<input type="checkbox" name="states[]" value="17">Illinois<br>
+<input type="checkbox" name="states[]" value="18">Indiana<br>
+<input type="checkbox" name="states[]" value="19">Iowa<br>
+<input type="checkbox" name="states[]" value="20">Kansas<br>
+<input type="checkbox" name="states[]" value="21">Kentucky<br>
+<input type="checkbox" name="states[]" value="22">Louisiana<br>
+<input type="checkbox" name="states[]" value="23">Maine<br>
+<input type="checkbox" name="states[]" value="24">Maryland<br>
+<input type="checkbox" name="states[]" value="25">Massachusetts<br>
+<input type="checkbox" name="states[]" value="26">Michigan<br>
+<input type="checkbox" name="states[]" value="27">Minnesota<br>
+<input type="checkbox" name="states[]" value="28">Mississippi<br>
+<input type="checkbox" name="states[]" value="29">Missouri<br>
+<input type="checkbox" name="states[]" value="30">Montana<br>
+<input type="checkbox" name="states[]" value="31">Nebraska<br>
+<input type="checkbox" name="states[]" value="32">Nevada<br>
+<input type="checkbox" name="states[]" value="33">New Hampshire<br>
+<input type="checkbox" name="states[]" value="34">New Jersey<br>
+<input type="checkbox" name="states[]" value="35">New Mexico<br>
+<input type="checkbox" name="states[]" value="36">New York<br>
+<input type="checkbox" name="states[]" value="37">North Carolina<br>
+<input type="checkbox" name="states[]" value="38">North Dakota<br>
+<input type="checkbox" name="states[]" value="39">Ohio<br>
+<input type="checkbox" name="states[]" value="40">Oklahoma<br>
+<input type="checkbox" name="states[]" value="41">Oregon<br>
+<input type="checkbox" name="states[]" value="42">Pennsylvania<br>
+<input type="checkbox" name="states[]" value="44">Rhode Island<br>
+<input type="checkbox" name="states[]" value="45">South Carolina<br>
+<input type="checkbox" name="states[]" value="46">South Dakota<br>
+<input type="checkbox" name="states[]" value="47">Tennessee<br>
+<input type="checkbox" name="states[]" value="48">Texas<br>
+<input type="checkbox" name="states[]" value="49">Utah<br>
+<input type="checkbox" name="states[]" value="50">Vermont<br>
+<input type="checkbox" name="states[]" value="51">Virginia<br>
+<input type="checkbox" name="states[]" value="53">Washington<br>
+<input type="checkbox" name="states[]" value="54">West Virginia<br>
+<input type="checkbox" name="states[]" value="55">Wisconsin<br>
+<input type="checkbox" name="states[]" value="56">Wyoming<br>
 
 Industry: <br>
-<select name="industrylist" form="industryselection">
-  <option value="00: All">00: All</option> 
-	<option value="11: Agriculture">11: Agriculture</option> 
-	<option value="21: Mining, Quarrying, Oil, Gas Extraction">21: Mining, Quarrying, Oil, Gas Extraction</option> 
-	<option value="22: Utilities">22: Utilities</option> 
-	<option value="23: Construction">23: Construction</option> 
-	<option value="31: Manufacturing">31: Manufacturing</option> 
-	<option value="42: Wholesale Trade">42: Wholesale Trade</option> 
-	<option value="44: Retail Trade">44: Retail Trade</option> 
-	<option value="48: Transportation and Warehousing">48: Transportation and Warehousing</option> 
-	<option value="51: Information">51: Information</option> 
-	<option value="52: Finance and Insurance">52: Finance and Insurance</option> 
-	<option value="53: Real Estate, Rental, and Leasing">53: Real Estate, Rental, and Leasing</option> 
-	<option value="54: Professional, Scientific, and Technical Services">54: Professional, Scientific, and Technical Services</option> 
-	<option value="55: Management of Companies and Enterprises">55: Management of Companies and Enterprises</option> 
-	<option value="56: Administrative and Support and Waste Management and Remediation Services">56: Administrative and Support and Waste Management and Remediation Services</option> 
-	<option value="61: Educational Services">61: Educational Services</option> 
-	<option value="62: Health Care and Social Assistance">62: Health Care and Social Assistance</option> 
-	<option value="71: Arts, Entertainment, and Recreation">71: Arts, Entertainment, and Recreation</option> 
-	<option value="72: Accommodation and Food Services">72: Accommodation and Food Services</option> 
-	<option value="92: Public Administration">92: Public Administration</option> 
-	<option value="81: Other Services">81: Other Services</option> 
+<select name="industrylist">
+  <option value="00"> All</option>
+	<option value="11">Agriculture</option>
+	<option value="21">Mining, Quarrying, Oil, Gas Extraction</option>
+	<option value="22">Utilities</option>
+	<option value="23">Construction</option>
+	<option value="31">Manufacturing</option>
+	<option value="42">Wholesale Trade</option>
+	<option value="44">Retail Trade</option>
+	<option value="48">Transportation and Warehousing</option>
+	<option value="51">Information</option>
+	<option value="52">Finance and Insurance</option>
+	<option value="53">Real Estate, Rental, and Leasing</option>
+	<option value="54">Professional, Scientific, and Technical Services</option>
+	<option value="55">Management of Companies and Enterprises</option>
+	<option value="56">Administrative and Support and Waste Management and Remediation Services</option>
+	<option value="61">Educational Services</option>
+	<option value="62">Health Care and Social Assistance</option>
+	<option value="71">Arts, Entertainment, and Recreation</option>
+	<option value="72">Accommodation and Food Services</option>
+	<option value="92">Public Administration</option>
+	<option value="81">Other Services</option>
 </select>
 
 <div id="genderyouare">
@@ -52,7 +105,7 @@ Salary Range: <br>
 
 <div id="sliderbar">
 Salary to Attractiveness Ratio: <br>
-<input type="range" min="0" max="100" onChange="showValue(this.value)"/> <span id="range"> 0 </span>
+<input type="range" name ="slider" min="0" max="100" onChange="showValue(this.value)"/> <span id="range"> 0 </span>
 </div>
 
 <input type="submit" value="Submit">
