@@ -16,7 +16,10 @@
 
 <body>
 
+	<div id="here_table"></div>
+
     <form id="subform" name="inputval">
+
         <h1>Preferences</h1> States:
         <br>
         <div id="map" style="width: 30rem; height: 20rem;"></div>
@@ -291,6 +294,7 @@
         });
 
         function sendGET(event) {
+        	displayResults();
         	var formInfo = $('form').serializeArray();
         	console.log(formInfo);
         	var formDict = {};
@@ -298,15 +302,28 @@
         		formDict[formInfo[i]['name']] = formInfo[i]['value'];
         	}
         	$.get('http://localhost:3000', formDict, function success(data) {
-        		document.body.innerHTML = data;
-        	}).fail(function() { console.log('did not work') } );
+        		displayResults(data);
+          	}).fail(function() { console.log('did not work') } );
 
         }
         $("#subform").submit(function(e) {
 		    e.preventDefault();
 		});
 
-		function displayResults(json) {
+		function displayResults() {
+			// geographical location: county code
+			// earnings: p, l
+			// employment: p, l
+			// hiring: p, l
+			// ratio: p, l
+			// income: score
+			$('form').hide();
+			var content = '<table>';
+			content += '<tr><td>' + ' Geographical Location: Santa Clara County' + '</td></tr>';
+			content += '<tr><td>' + ' Earnings: predicted $120000, current $100000 ' + '</td></tr>';
+			
+			content += '</table>';
+			$('#here_table').append(content);
 
 		}
 
