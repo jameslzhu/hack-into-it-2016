@@ -1,14 +1,13 @@
 var express = require('express');
-express.use()
+var bodyParser = require('body-parser');
 
 // Get the router
 var router = express.Router();
-var bodyParser = require('body-parser');
  
 var loadRankings = require('./loadRankings');
 var Ranking = require('./models/ranking.js');
 
-//loadRankings.loadRankings();
+loadRankings.loadRankings();
 
 // Middleware for all this routers requests
 router.use(function timeLog(req, res, next) {
@@ -25,23 +24,26 @@ router.get('/', function(req, res) {
 router.route('/request')
 	.get(function(req, res) {
 		//var states = req.body.states;
-		var industry = req.body.industry;
-		var gender = req.body.gender;
-		var pref = req.body.pref;
-		var slider = req.body.slider;
+		var industry = req.query.industry;
+		var gender = req.query.gender;
+		var pref = req.query.pref;
+		var slider = req.query.slider;
+		var states = req.query.states;
 
-		var jsonResults = {}
-		console.log(req.body)
-		console.log(req.url)
-		//console.log(states)
-		/*for (var i = 0; i < states.length; i++) {
+		var jsonResults = {}                                     
+		console.log(req.query)
+		for (var i = 0; i < states.length; i++) {
 			var s = states[i]
-			Ranking.find({state: s, industry: industry}, function(err, county){
-				if (err)
+			console.log(parseInt(s))
+			console.log(parseInt(industry))
+			Ranking.find({state: 6, industry: 0}, function(err, county){
+				console.log(county)
+				console.log(county)
+				/*if (err)
 					res.send(err);
-				res.json(county)
+				res.json(county)*/
 			});	
-		}*/
+		}
 	});
 
 
