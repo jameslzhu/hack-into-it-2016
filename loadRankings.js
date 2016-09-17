@@ -1,70 +1,66 @@
-var County = require('./models/county');
+var Ranking = require('./models/ranking.js');
 var glob = require("glob");
 var fs = require("fs");
 var async = require("async");
 
 function getAllJson() {
+    var ranks = []
     glob("jsonPredict/*.json", function(err, files) {
         if(err) {
             console.log("cannot read the folder, something goes wrong with glob", err);
         }
         var z = 0
-        async.whilst(
-            function () { return z < 51; },
-            function (callback) {
-                z += 1;
-                console.log(z)
-                fs.readFile(files[z], 'utf8', function (err, data) { // Read each file
+        for (var file in files) {
+                console.log(file)
+                fs.readFile(file, 'utf8', function (err, data) { // Read each file
                     if(err) {
                         console.log("cannot read the file, something goes wrong with the file", err);
                     }
-                    var res = data.split(",\n");
-                    for (var i = 1; i < res.length; i++){
-                        var obj = JSON.parse(res[i]);
-                        var county = new County();
-                        var geo = parseInt(obj.geography, 10)
-                        var industry = parseInt(obj.industry, 10)
-
-                        var earn = parseInt(obj.EarnS, 10)
-                        if (isNaN(earn)) {
-                            earn = -1
+                    var obj = JSON.parse(data);
+                    for(var prop in obj) {
+                        if (obj[prop][1] == null) {
+                            break;
                         }
-                        var hire = parseInt(obj.HirN, 10)
-                        if (isNaN(hire)) {
-                            hire = -1
-                        }
-                        var sex = parseInt(obj.sex, 10)
-                        var emp = parseInt(obj.Emp, 10)
-                        if (isNaN(emp)) {
-                            emp = -1
-                        }
-                        var year = parseInt(obj.year, 10)
-                        var quarter = parseInt(obj.quarter, 10)
-                        var geography = parseInt(obj.geography, 10)
-                        if (geo < 100) {
-                            county.state = geo;
+                        var state;
+                        var county;
+                        
+                        if (prop < 100) {
+                            state = prop
+                            county = 0
                         }
                         else {
-                            var state = Math.floor(geo/1000)
-                            county.state = state
-                            county.county = geo - state
-                        }      
-                        county.occupation = industry
-                        county.sex = sex
-                        county.hire = hire
-                        county.earn = earn
-                        county.emp = emp
-                        county.year = year
-                        county.quarter = quarter
-                        county.save(function(err) {
-                            callback(); 
-                        });
-                    };
+                            state = Math.floor(prop/1000);
+                            county = prop % 1000;
+                        }
+                        for (var job in obj[prop]) {
+                            for (var sex in obj[prop][job]) {
+                                var rank = new Ranking();
+                                rank.state = state;
+                                rank.county = county;
+                                rank.occupation = job;
+                                rank.sex = sex;
+                                rank.EarnSL = Math.round(obj[prop][job][sex]["EarnSL"]),
+                                rank.EarnSPred = Math.round(obj[prop][job][sex]["EarnSPred"]),
+                                rank.EmpL = Math.round(obj[prop][job][sex]["EmpL"]),
+                                rank.EmpPred = Math.round(obj[prop][job][sex]["EmpPred"]),
+                                rank.HirNL = Math.round(obj[prop][job][sex]["HirNL"]),
+                                rank.HirNPred = Math.round(obj[prop][job][sex]["HirNPred"]),
+                                rank.RatioL = obj[prop][job][sex]["RatioL"],
+                                rank.RatioPred = obj[prop][job][sex]["RatioPred"]
+                                ranks.append(rank)
+
+                            }
+                        }
+                        //if (z < 50){callback();}
+                        
+                    }
                 });
-            },
-            function () {
-            // 5 seconds have passed, n = 5
             }
         );
     });
+    console.log(ranks)
 };
+
+exports.loadRankings = function() {
+    getAllJson();
+}
