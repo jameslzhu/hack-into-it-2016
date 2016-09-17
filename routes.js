@@ -2,11 +2,12 @@ var express = require('express');
 
 // Get the router
 var router = express.Router();
+var bodyParser = require('body-parser');
  
-var loadCounties = require('./loadCounties.js');
-var County = require('./models/county');
+var loadRankings = require('./loadRankings');
+var Ranking = require('./models/ranking.js');
 
-loadCounties.loadCounties();
+//loadRankings.loadRankings();
 
 // Middleware for all this routers requests
 router.use(function timeLog(req, res, next) {
@@ -20,15 +21,26 @@ router.get('/', function(req, res) {
 });
  
 // GET all messages (using a GET at http://localhost:8080/messages)
-router.route('/signin')
+router.route('/request')
 	.get(function(req, res) {
-		County.find({sex: 2}, function(err, account){
-			if (err)
-				res.send(err);
-			res.json(account)
-			console.log(account.length)
-		});
-		
+		//var states = req.body.states;
+		var industry = req.body.industry;
+		var gender = req.body.gender;
+		var pref = req.body.pref;
+		var slider = req.body.slider;
+
+		var jsonResults = {}
+		console.log(req.body)
+		console.log(req.url)
+		//console.log(states)
+		/*for (var i = 0; i < states.length; i++) {
+			var s = states[i]
+			Ranking.find({state: s, industry: industry}, function(err, county){
+				if (err)
+					res.send(err);
+				res.json(county)
+			});	
+		}*/
 	});
 
 

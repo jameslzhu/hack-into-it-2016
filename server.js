@@ -5,7 +5,7 @@ var routes     = require('./routes');
 
 //connecting to database
 var mongoose = require("mongoose");
-mongoose.connect('mongodb://localhost/restdb')
+mongoose.connect('mongodb://localhost/counties')
  
 // express app will use body-parser to get data from POST
 app.use(bodyParser.urlencoded({ extended: true }));
