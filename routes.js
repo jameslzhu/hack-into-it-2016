@@ -4,7 +4,7 @@ var bodyParser = require('body-parser');
 // Get the router
 var router = express.Router();
  
-var loadRankings = require('./loadRankings');
+var loadRankings = require('./loadRankings.js');
 var Ranking = require('./models/ranking.js');
 
 loadRankings.loadRankings();

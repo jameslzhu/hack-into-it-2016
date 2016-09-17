@@ -2,6 +2,7 @@ var Ranking = require('./models/ranking.js');
 var glob = require("glob");
 var fs = require("fs");
 var async = require("async");
+console.log("IS THIS BEING RUN")
 
 function getAllJson() {
     var ranks = []
@@ -9,10 +10,8 @@ function getAllJson() {
         if(err) {
             console.log("cannot read the folder, something goes wrong with glob", err);
         }
-        var z = 0
-        for (var file in files) {
-                console.log(file)
-                fs.readFile(file, 'utf8', function (err, data) { // Read each file
+        for (var i = 0; i < files.length; i++) {
+                fs.readFile(files[i], 'utf8', function (err, data) { // Read each file
                     if(err) {
                         console.log("cannot read the file, something goes wrong with the file", err);
                     }
@@ -47,7 +46,9 @@ function getAllJson() {
                                 rank.HirNPred = Math.round(obj[prop][job][sex]["HirNPred"]),
                                 rank.RatioL = obj[prop][job][sex]["RatioL"],
                                 rank.RatioPred = obj[prop][job][sex]["RatioPred"]
-                                ranks.append(rank)
+                                rank.save(function(err) {
+                                    console.log('this fires after the `post` hook');
+                                });
 
                             }
                         }
@@ -55,10 +56,9 @@ function getAllJson() {
                         
                     }
                 });
-            }
-        );
+        }
     });
-    console.log(ranks)
+    
 };
 
 exports.loadRankings = function() {
