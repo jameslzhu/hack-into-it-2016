@@ -3,67 +3,71 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href='http://fonts.googleapis.com/css?family=Nunito:400,300' rel='stylesheet' type='text/css'>
     <title> --> Find Bae Here <-- </title>
     <!-- Bootstrap -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="styles">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
 <form name="inputval" action="http://localhost:3000" method="GET">
+  <h1>Preferences</h1>
     States: <br>
-    <input type="checkbox" name="states[]" value="00">National (50 States + DC)<br>
-    <input type="checkbox" name="states[]" value="01">Alabama<br>
-    <input type="checkbox" name="states[]" value="02">Alaska<br>
-    <input type="checkbox" name="states[]" value="04">Arizona<br>
-    <input type="checkbox" name="states[]" value="05">Arkansas<br>
-    <input type="checkbox" name="states[]" value="06">California<br>
-    <input type="checkbox" name="states[]" value="08">Colorado<br>
-    <input type="checkbox" name="states[]" value="09">Connecticut<br>
-    <input type="checkbox" name="states[]" value="10">Delaware<br>
-    <input type="checkbox" name="states[]" value="11">District of Columbia<br>
-    <input type="checkbox" name="states[]" value="12">Florida<br>
-    <input type="checkbox" name="states[]" value="13">Georgia<br>
-    <input type="checkbox" name="states[]" value="15">Hawaii<br>
-    <input type="checkbox" name="states[]" value="16">Idaho<br>
-    <input type="checkbox" name="states[]" value="17">Illinois<br>
-    <input type="checkbox" name="states[]" value="18">Indiana<br>
-    <input type="checkbox" name="states[]" value="19">Iowa<br>
-    <input type="checkbox" name="states[]" value="20">Kansas<br>
-    <input type="checkbox" name="states[]" value="21">Kentucky<br>
-    <input type="checkbox" name="states[]" value="22">Louisiana<br>
-    <input type="checkbox" name="states[]" value="23">Maine<br>
-    <input type="checkbox" name="states[]" value="24">Maryland<br>
-    <input type="checkbox" name="states[]" value="25">Massachusetts<br>
-    <input type="checkbox" name="states[]" value="26">Michigan<br>
-    <input type="checkbox" name="states[]" value="27">Minnesota<br>
-    <input type="checkbox" name="states[]" value="28">Mississippi<br>
-    <input type="checkbox" name="states[]" value="29">Missouri<br>
-    <input type="checkbox" name="states[]" value="30">Montana<br>
-    <input type="checkbox" name="states[]" value="31">Nebraska<br>
-    <input type="checkbox" name="states[]" value="32">Nevada<br>
-    <input type="checkbox" name="states[]" value="33">New Hampshire<br>
-    <input type="checkbox" name="states[]" value="34">New Jersey<br>
-    <input type="checkbox" name="states[]" value="35">New Mexico<br>
-    <input type="checkbox" name="states[]" value="36">New York<br>
-    <input type="checkbox" name="states[]" value="37">North Carolina<br>
-    <input type="checkbox" name="states[]" value="38">North Dakota<br>
-    <input type="checkbox" name="states[]" value="39">Ohio<br>
-    <input type="checkbox" name="states[]" value="40">Oklahoma<br>
-    <input type="checkbox" name="states[]" value="41">Oregon<br>
-    <input type="checkbox" name="states[]" value="42">Pennsylvania<br>
-    <input type="checkbox" name="states[]" value="44">Rhode Island<br>
-    <input type="checkbox" name="states[]" value="45">South Carolina<br>
-    <input type="checkbox" name="states[]" value="46">South Dakota<br>
-    <input type="checkbox" name="states[]" value="47">Tennessee<br>
-    <input type="checkbox" name="states[]" value="48">Texas<br>
-    <input type="checkbox" name="states[]" value="49">Utah<br>
-    <input type="checkbox" name="states[]" value="50">Vermont<br>
-    <input type="checkbox" name="states[]" value="51">Virginia<br>
-    <input type="checkbox" name="states[]" value="53">Washington<br>
-    <input type="checkbox" name="states[]" value="54">West Virginia<br>
-    <input type="checkbox" name="states[]" value="55">Wisconsin<br>
-    <input type="checkbox" name="states[]" value="56">Wyoming<br>
-
+  <ul>
+    <li><input type="checkbox" name="states[]" value="00">National (50 States + DC)</input></li>
+    <li><input type="checkbox" name="states[]" value="01">Alabama</input></li>
+    <li><input type="checkbox" name="states[]" value="02">Alaska</input></li>
+    <li><input type="checkbox" name="states[]" value="04">Arizona</input></li>
+    <li><input type="checkbox" name="states[]" value="05">Arkansas</input></li>
+    <li><input type="checkbox" name="states[]" value="06">California</input></li>
+    <li><input type="checkbox" name="states[]" value="08">Colorado</input></li>
+    <li><input type="checkbox" name="states[]" value="09">Connecticut</input></li>
+    <li><input type="checkbox" name="states[]" value="10">Delaware</input></li>
+    <li><input type="checkbox" name="states[]" value="11">District of Columbia</input></li>
+    <li><input type="checkbox" name="states[]" value="12">Florida</input></li>
+    <li><input type="checkbox" name="states[]" value="13">Georgia</input></li>
+    <li><input type="checkbox" name="states[]" value="15">Hawaii</input></li>
+    <li><input type="checkbox" name="states[]" value="16">Idaho</input></li>
+    <li><input type="checkbox" name="states[]" value="17">Illinois</input></li>
+    <li><input type="checkbox" name="states[]" value="18">Indiana</input></li>
+    <li><input type="checkbox" name="states[]" value="19">Iowa</input></li>
+    <li><input type="checkbox" name="states[]" value="20">Kansas</input></li>
+    <li><input type="checkbox" name="states[]" value="21">Kentucky</input></li>
+    <li><input type="checkbox" name="states[]" value="22">Louisiana</input></li>
+    <li><input type="checkbox" name="states[]" value="23">Maine</input></li>
+    <li><input type="checkbox" name="states[]" value="24">Maryland</input></li>
+    <li><input type="checkbox" name="states[]" value="25">Massachusetts</input></li>
+    <li><input type="checkbox" name="states[]" value="26">Michigan</input></li>
+    <li><input type="checkbox" name="states[]" value="27">Minnesota</input></li>
+    <li><input type="checkbox" name="states[]" value="28">Mississippi</input></li>
+    <li><input type="checkbox" name="states[]" value="29">Missouri</input></li>
+    <li><input type="checkbox" name="states[]" value="30">Montana</input></li>
+    <li><input type="checkbox" name="states[]" value="31">Nebraska</input></li>
+    <li><input type="checkbox" name="states[]" value="32">Nevada</input></li>
+    <li><input type="checkbox" name="states[]" value="33">New Hampshire</input></li>
+    <li><input type="checkbox" name="states[]" value="34">New Jersey</input></li>
+    <li><input type="checkbox" name="states[]" value="35">New Mexico</input></li>
+    <li><input type="checkbox" name="states[]" value="36">New York</input></li>
+    <li><input type="checkbox" name="states[]" value="37">North Carolina</input></li>
+    <li><input type="checkbox" name="states[]" value="38">North Dakota</input></li>
+    <li><input type="checkbox" name="states[]" value="39">Ohio</input></li>
+    <li><input type="checkbox" name="states[]" value="40">Oklahoma</input></li>
+    <li><input type="checkbox" name="states[]" value="41">Oregon</input></li>
+    <li><input type="checkbox" name="states[]" value="42">Pennsylvania</input></li>
+    <li><input type="checkbox" name="states[]" value="44">Rhode Island</input></li>
+    <li><input type="checkbox" name="states[]" value="45">South Carolina</input></li>
+    <li><input type="checkbox" name="states[]" value="46">South Dakota</input></li>
+    <li><input type="checkbox" name="states[]" value="47">Tennessee</input></li>
+    <li><input type="checkbox" name="states[]" value="48">Texas</input></li>
+    <li><input type="checkbox" name="states[]" value="49">Utah</input></li>
+    <li><input type="checkbox" name="states[]" value="50">Vermont</input></li>
+    <li><input type="checkbox" name="states[]" value="51">Virginia</input></li>
+    <li><input type="checkbox" name="states[]" value="53">Washington</input></li>
+    <li><input type="checkbox" name="states[]" value="54">West Virginia</input></li>
+    <li><input type="checkbox" name="states[]" value="55">Wisconsin</input></li>
+    <li><input type="checkbox" name="states[]" value="56">Wyoming</input></li>
+</ul>
     Industry: <br>
     <select name="industrylist">
         <option value="00"> All</option>
