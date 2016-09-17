@@ -9,8 +9,7 @@ body {
   color: #384047;
 }
 li {
-    display: block;
-    float: left;
+    display: inline-block;
     width: 50%;
 }
 
